@@ -71,6 +71,7 @@ const ProductDetailScreen = ({ history, match }) => {
             ) : (
                 <>
                 <Meta title={product.name} />
+                <h2>{product.name}</h2>
                 <Row>
                     <Col md={6}>
                         <Image src={product.image} atl={product.name} fluid />
@@ -78,8 +79,9 @@ const ProductDetailScreen = ({ history, match }) => {
                     <Col md={3}>
                         <ListGroup variant='flush'>
                             <ListGroup.Item>
-                                <h2>{product.name}</h2>
+                                <h5>Description</h5>
                             </ListGroup.Item>
+
                             <ListGroup.Item>
                                 <Rating 
                                     value={product.rating}
