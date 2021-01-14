@@ -9,8 +9,6 @@ const getBlogs = asyncHandler(async (req, res) => {
     const pageSize = 6
     const page = Number(req.query.pageNumber) || 1
 
-
-
     const count = await Blog.countDocuments({})
     const blogs = await Blog.find({})
         .limit(pageSize)

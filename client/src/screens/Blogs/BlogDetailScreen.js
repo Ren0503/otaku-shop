@@ -41,3 +41,5 @@ const BlogDetailScreen = ({ history, match }) => {
         </>
     )    
 }
+
+export default BlogDetailScreen
