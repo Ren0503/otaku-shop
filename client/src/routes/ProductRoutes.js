@@ -14,7 +14,7 @@ export default function ProductRoutes() {
             <Route path='/product/genres/:genre' component={ProductGenresScreen} />
             <Route path='/product/genres/:genre/page/:pageNumber' component={ProductGenresScreen} />
             <Route path='/product/:id' component={ProductDetailScreen} />
-            <Route path='/cart/:id' component={CartScreen} />
+            <Route path='/cart/:id?' component={CartScreen} />
         </Switch>
     )
 }

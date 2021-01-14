@@ -8,7 +8,7 @@ import { CheckoutSteps } from '../../components/orders'
 import { savePaymentMethod } from '../../actions/cartActions'
 
 const PaymentScreen = ({ history }) => {
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector((state) => state.cart)
     const { shippingAddress } = cart
 
     if(!shippingAddress.address) {

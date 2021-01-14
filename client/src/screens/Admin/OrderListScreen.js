@@ -43,6 +43,7 @@ const OrderListScreen = ({ history }) => {
                             <th>DELIVERED</th>
                             <th></th>
                         </tr>
+                        </thead>
                         <tbody>
                             {orders.map((order) => (
                                 <tr key={order._id}>
@@ -74,7 +75,6 @@ const OrderListScreen = ({ history }) => {
                                 </tr>
                             ))}
                         </tbody>
-                    </thead>
                 </Table>
             )}
         </>
