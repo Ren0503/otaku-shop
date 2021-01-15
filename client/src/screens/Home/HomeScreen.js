@@ -8,7 +8,7 @@ import { Product, ProductCarousel } from '../../components/products'
 
 import { listProducts } from '../../actions/productActions'
 
-const ProductHomeScreen = ({ match }) => {
+const HomeScreen = ({ match }) => {
     const keyword = match.params.keyword
 
     const pageNumber= match.params.pageNumber || 1
@@ -57,4 +57,4 @@ const ProductHomeScreen = ({ match }) => {
     )
 }
 
-export default ProductHomeScreen
+export default HomeScreen

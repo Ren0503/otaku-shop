@@ -25,14 +25,18 @@ const BlogEditScreen = ({ match, history }) => {
     const { loading, error, blog } = blogDetail
 
     const blogUpdate = useSelector(state => state.blogUpdate)
-    const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = blogUpdate
+    const { 
+        loading: loadingUpdate, 
+        error: errorUpdate, 
+        success: successUpdate 
+    } = blogUpdate
 
     useEffect(() => {
         if(successUpdate) {
             dispatch({ type: BLOG_UPDATE_RESET })
             history.push('/admin/blog_list')
         } else {
-            if(!blog.title || blog._id !== blogId) {
+            if(!blog.name || blog._id !== blogId) {
                 dispatch(detailBlog(blogId))
             } else {
                 setTitle(blog.title)
@@ -97,7 +101,7 @@ const BlogEditScreen = ({ match, history }) => {
                         <Form.Group controlId='title'>
                             <Form.Label>Title</Form.Label>
                             <Form.Control
-                                type='title'
+                                type='name'
                                 placeholder='Enter title'
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}                            

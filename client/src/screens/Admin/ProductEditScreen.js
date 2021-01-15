@@ -198,14 +198,17 @@ const ProductEditScreen = ({ match, history }) => {
                             ></Form.Control>
                         </Form.Group>
 
-                        <Form.Group controlId='genres'>
+                        <Form.Group controlId="genres">
                             <Form.Label>Genres</Form.Label>
-                            <Form.Control
-                                type='text'
-                                placeholder='Enter genres'
+                            <Form.Control 
+                                as="select" 
                                 value={genres}
                                 onChange={(e) => setGenres(e.target.value)}                            
-                            ></Form.Control>
+                            >
+                                <option value="chibi">Chibi</option>
+                                <option value="action">Action</option>
+                                <option value="multi">Multiple</option>
+                            </Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId='description'>
