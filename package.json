@@ -8,8 +8,6 @@
     "server": "nodemon server/server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node server/seeder",
-    "data:destroy": "node server/seeder -d"
   },
   "author": "Ren0503 <illuminati0440@gmail.com>",
   "license": "MIT",
