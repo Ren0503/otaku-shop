@@ -40,12 +40,6 @@ const Menu = () => {
                                <NavDropdown.Item href='/product/genres/multi'>Attack on the Titan</NavDropdown.Item>
                             </Link>
                         </NavDropdown>
-                        <NavDropdown title="Guide" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">What is Figure</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Compare between Real and Fake</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Question & Ask</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">How to fix Figure</NavDropdown.Item>
-                        </NavDropdown>
                         <Nav.Link href="#pricing">About</Nav.Link>
                         <Nav.Link href="#pricing">Contact</Nav.Link>
                     </Nav>

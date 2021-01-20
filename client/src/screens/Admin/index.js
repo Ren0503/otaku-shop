@@ -3,8 +3,6 @@ import UserEditScreen from './UserEditScreen'
 import ProductListScreen from './ProductListScreen'
 import ProductEditScreen from './ProductEditScreen'
 import OrderListScreen from './OrderListScreen'
-import BlogListScreen from './BlogListScreen'
-import BlogEditScreen from './BlogEditScreen'
 
 export {
     UserEditScreen,
@@ -12,6 +10,4 @@ export {
     ProductListScreen,
     ProductEditScreen,
     OrderListScreen,
-    BlogEditScreen,
-    BlogListScreen,
 }

@@ -7,8 +7,6 @@ import {
     ProductListScreen,
     ProductEditScreen,
     OrderListScreen,
-    BlogEditScreen,
-    BlogListScreen,
 } from '../screens/Admin'
 
 export default function AdminRoutes() {
@@ -28,8 +26,6 @@ export default function AdminRoutes() {
             />
             <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
             <Route path='/admin/order_list' component={OrderListScreen} />
-            <Route path='/admin/blog_list' component={BlogListScreen} />
-            <Route path='/admin/blog/:id/edit' component={BlogEditScreen} />
         </Switch>
     )
 }

@@ -14,14 +14,6 @@ import {
 
 import { cartReducer } from './cartReducer'
 
-import { 
-    blogListReducer,
-    blogDetailReducer,
-    blogCreateReducer,
-    blogDeleteReducer,
-    blogUpdateReducer,
-} from './blogReducer'
-
 import {
     userLoginReducer,
     userRegisterReducer,
@@ -65,11 +57,6 @@ const reducer = combineReducers({
     orderDeliver: orderDeliverReducer,
     orderListMy: orderListMyReducer,
     orderList: orderListReducer,
-    blogList: blogListReducer,
-    blogDetail: blogDetailReducer,
-    blogCreate: blogCreateReducer,
-    blogDelete: blogDeleteReducer,
-    blogUpdate: blogUpdateReducer,
 })
 
 export default reducer
