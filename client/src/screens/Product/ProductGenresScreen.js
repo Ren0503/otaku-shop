@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
 import { Product } from '../../components/products'
 import { Loader, Message, Paginate } from '../../components/services'
@@ -21,7 +21,10 @@ const ProductGenresScreen = ({ match }) => {
 
     return (
         <>
-            <h1>Latest Products</h1>
+            <Breadcrumb>
+                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Product</Breadcrumb.Item>
+            </Breadcrumb>
             {loading ? (
                 <Loader />
             ) : error ? (

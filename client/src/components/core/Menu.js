@@ -6,7 +6,7 @@ const Menu = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">OTAKU YUKI</Navbar.Brand>
+                <Navbar.Brand href="/">OTAKU YUKI</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -22,8 +22,8 @@ const Menu = () => {
                                 <NavDropdown.Item href='/product/genres/multi'>Multi</NavDropdown.Item>
                             </Link>
                             <NavDropdown.Divider />
-                            <Link to={`/`}>
-                                <NavDropdown.Item>All</NavDropdown.Item>
+                            <Link to='/product/genres/book'>
+                            <NavDropdown.Item href='/product/genres/book'>Book</NavDropdown.Item>
                             </Link>
                         </NavDropdown>
                         <NavDropdown title="Series" id="collasible-nav-dropdown">
@@ -40,8 +40,8 @@ const Menu = () => {
                                <NavDropdown.Item href='/product/genres/multi'>Attack on the Titan</NavDropdown.Item>
                             </Link>
                         </NavDropdown>
-                        <Nav.Link href="#pricing">About</Nav.Link>
-                        <Nav.Link href="#pricing">Contact</Nav.Link>
+                        <Nav.Link href="/about">About</Nav.Link>
+                        <Nav.Link href="/contact">Contact</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -208,6 +208,7 @@ const ProductEditScreen = ({ match, history }) => {
                                 <option value="chibi">Chibi</option>
                                 <option value="action">Action</option>
                                 <option value="multi">Multiple</option>
+                                <option value="book">Artbook</option>
                             </Form.Control>
                         </Form.Group>
 
