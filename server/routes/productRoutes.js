@@ -9,6 +9,7 @@ import {
     createProductReview,
     getTopProducts,
     getProductByGenres,
+    getProductsBySeries,
 } from '../controllers/productController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
@@ -23,6 +24,11 @@ router
 router
     .route('/genres')
     .get(getProductByGenres)
+
+// Get Product By Series
+router
+    .route('/series')
+    .get(getProductsBySeries)
 
 // Get Product Review
 router

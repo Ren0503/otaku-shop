@@ -26,6 +26,27 @@ const getProducts = asyncHandler(async (req, res) => {
     res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
+// @desc Fetch products by series
+// @routes GET /api/products/series
+// @actress public
+
+const getProductsBySeries = asyncHandler(async (req, res) => {
+    const series = req.query.series
+    ? {
+        series: {
+            $regex: req.query.series,
+            $options: 'i',
+        },
+    } : {}
+
+    const products = await Product.find({...series})
+
+    .sort({ createdAt: -1 })
+
+    res.json({ products })
+
+})
+
 // @desc    fetch single product
 // @routes  GET /api/products/:id
 // @access  public
@@ -202,4 +223,5 @@ export {
     createProductReview,
     getTopProducts,
     getProductByGenres,
+    getProductsBySeries,
 }

@@ -25,6 +25,29 @@ export const listProducts = (keyword = '', pageNumber = '') => async (dispatch) 
     }
 }
 
+export const listProductsSeries = (series) => async(dispatch) => {
+    try {
+        dispatch({ type: types.PRODUCT_SERIES_REQUEST })
+
+        const { data } = await axios.get(
+            `/api/products/series?series=${series}`
+        )
+
+        dispatch({
+            type: types.PRODUCT_SERIES_SUCCESS,
+            payload: data,
+        })
+    } catch(error) {
+        dispatch({
+            type: types.PRODUCT_SERIES_FAIL,
+            payload:
+                error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        })
+    }
+}
+
 export const listProductsGenres = (genres, pageNumber = '') => async (dispatch) => {
     try {
         dispatch({ type: types.PRODUCT_GENRES_REQUEST })

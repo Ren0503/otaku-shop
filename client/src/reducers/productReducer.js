@@ -18,6 +18,22 @@ export const productListReducer = (state = { products: []}, action) => {
     }
 }
 
+export const productSeriesReducer = (state = { products: []}, action) => {
+    switch(action.type) {
+        case types.PRODUCT_SERIES_REQUEST:
+            return { loading: true, products: [] }
+        case types.PRODUCT_SERIES_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            }
+        case types.PRODUCT_SERIES_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
 export const productGenresReducer = (state = { products: []}, action) => {
     switch(action.type) {
         case types.PRODUCT_GENRES_REQUEST:

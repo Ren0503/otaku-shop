@@ -1,19 +1,19 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import HomeScreen from '../screens/Home/HomeScreen'
+import ProductHomeScreen from '../screens/Product/ProductHomeScreen'
 
 export default function HomeRoutes() {
     return (
         <Switch>
-            <Route path='/search/:keyword' component={HomeScreen} exact />
-            <Route path='/page/:pageNumber' component={HomeScreen} exact />
+            <Route path='/search/:keyword' component={ProductHomeScreen} exact />
+            <Route path='/page/:pageNumber' component={ProductHomeScreen} exact />
             <Route
                 path='/search/:keyword/page/:pageNumber'
-                component={HomeScreen}
+                component={ProductHomeScreen}
                 exact
             />
-            <Route path='/' component={HomeScreen} exact />
+            <Route path='/' component={ProductHomeScreen} exact />
         </Switch>
     )
 }
