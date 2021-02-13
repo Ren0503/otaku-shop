@@ -1,58 +1,71 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Container, Card, CardGroup } from 'react-bootstrap'
 
+import home from '../../assets/images/home.jpg'
 import { Meta, Loader, Message, Paginate } from '../../components/services'
-import { Product, ProductCarousel } from '../../components/products'
+import { Product } from '../../components/products'
 
-import { listProducts } from '../../actions/productActions'
+import { listProductsGenres } from '../../actions/productActions'
 
-const HomeScreen = ({ match }) => {
-    const keyword = match.params.keyword
-
-    const pageNumber= match.params.pageNumber || 1
-    
+const HomeScreen = ({}) => {
     const dispatch = useDispatch()
-    const productList = useSelector(state => state.productList)
-    const { loading, error, products, page, pages} = productList
+    const productGenres = useSelector(state => state.productGenres)
+    const { loading, error, products } = productGenres
 
     useEffect(() => {
-        dispatch(listProducts(keyword, pageNumber))
+        dispatch(listProductsGenres())
 
-    }, [dispatch, keyword, pageNumber])
+    }, [dispatch, ])
 
     return (
         <>
             <Meta />
-            {!keyword ? (
-                <ProductCarousel />
-            ) : (
-                <Link to='/' className='btn btn-light'>
-                    Go Back
-                </Link>
-            )}
-            <h1>Latest Products</h1>
-            {loading ? (
-                <Loader />
-            ) : error ? (
-                <Message variant='danger'>{error}</Message>
-            ) : (
-                <>
-                    <Row>
-                        {products.map((product) => (
-                            <Col key={product.id} sm={12} md={6} lg={4} xl={3}>
-                                <Product product={product} />
-                            </Col>
-                        ))}
-                    </Row>
-                    <Paginate 
-                        pages={pages}
-                        page={page}
-                        keyword={keyword ? keyword : ''}
-                    />
-                </>
-            )}
+            <Card className="bg-dark text-white">
+                <Card.Img src={home} alt="Home image" fluid/>
+                <Card.ImgOverlay>
+                    <Card.Title>Otaku Figure Shop</Card.Title>
+                    <Card.Text>
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                    </Card.Text>
+                </Card.ImgOverlay>
+            </Card>
+            <Container>
+                {loading ? (
+                    <Loader />
+                ) : error ? (
+                    <Message variant='danger'>{error}</Message>
+                ) : (
+                    <>
+                        <CardGroup>
+                            {[
+                            'Info',
+                            'Success',
+                            'Warning'
+                            ].map((variant, idx) => (
+                            <Card
+                                bg={variant.toLowerCase()}
+                                key={idx}
+                                text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+                                style={{ width: '18rem' }}
+                                className="mb-2"
+                            >
+                                <Card.Header>Header</Card.Header>
+                                <Card.Body>
+                                <Card.Title>{variant} Card Title </Card.Title>
+                                <Card.Text>
+                                    Some quick example text to build on the card title and make up the bulk
+                                    of the card's content.
+                                </Card.Text>
+                                </Card.Body>
+                            </Card>
+                            ))}
+                        </CardGroup>
+                    </>
+                )}
+            </Container>
         </>
     )
 }

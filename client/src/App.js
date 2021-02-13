@@ -15,9 +15,9 @@ const App = () => {
     <Router>
       <Header />
       <Menu />
-      <main className='py-3'>
+      <main>
+        <HomeRoutes />
         <Container>
-          <HomeRoutes />
           <UserRoutes />
           <AdminRoutes />
           <OrderRoutes />

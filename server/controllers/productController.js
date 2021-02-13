@@ -194,9 +194,6 @@ const getTopProducts = asyncHandler(async (req, res) => {
 // @access  public
 
 const getProductByGenres = asyncHandler(async (req, res) => {
-    const pageSize = 8
-    const page = Number(req.query.pageNumber) || 1
-
     const genre = req.query.genre
     ? {
         genres: {
@@ -205,13 +202,9 @@ const getProductByGenres = asyncHandler(async (req, res) => {
         },
     } : {}
 
-    const count = await Product.find({ ...genre })
-        .countDocuments()
-    const products = await Product.find({ ...genre })
-        .limit(pageSize)
-        .skip(pageSize * (page - 1))
+    const products = await Product.find({ ...genre }).sort({ createdAt: -1 })
 
-    res.json({products, page, pages: Math.ceil(count / pageSize)})
+    res.json({ products })
 })
 
 export {

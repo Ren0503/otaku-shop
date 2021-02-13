@@ -3,21 +3,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
 import { Product } from '../../components/products'
-import { Loader, Message, Paginate } from '../../components/services'
+import { Loader, Message } from '../../components/services'
 
 import { listProductsGenres } from '../../actions/productActions'
 
 const ProductGenresScreen = ({ match }) => {
     const genres = match.params.genre
-    const pageNumber = match.params.pageNumber || 1
 
     const dispatch = useDispatch()
     const productGenres = useSelector(state => state.productGenres)
-    const { loading, error, products, page, pages } = productGenres
+    const { loading, error, products } = productGenres
 
     useEffect(() => {
-        dispatch(listProductsGenres(genres, pageNumber))
-    }, [dispatch, genres, pageNumber])
+        dispatch(listProductsGenres(genres))
+    }, [dispatch, genres])
 
     return (
         <>
@@ -38,10 +37,6 @@ const ProductGenresScreen = ({ match }) => {
                             </Col>
                         ))}
                     </Row>
-                    <Paginate 
-                        pages={pages}
-                        page={page}
-                    />
                 </>
             )}
         </>

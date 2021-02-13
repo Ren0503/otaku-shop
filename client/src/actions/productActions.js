@@ -48,12 +48,12 @@ export const listProductsSeries = (series) => async(dispatch) => {
     }
 }
 
-export const listProductsGenres = (genres, pageNumber = '') => async (dispatch) => {
+export const listProductsGenres = (genres) => async (dispatch) => {
     try {
         dispatch({ type: types.PRODUCT_GENRES_REQUEST })
 
         const { data } = await axios.get(
-            `/api/products/genres?genre=${genres}&pageNumber=${pageNumber}`
+            `/api/products/genres?genre=${genres}`
         )
 
         dispatch({

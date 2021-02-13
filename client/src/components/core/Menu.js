@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 
 const Menu = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand href="/">OTAKU YUKI</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 
+import Lottie from 'lottie-react-web'
+import emptyBox from '../../assets/animated/empty-box.json'
 import { Message } from '../../components/services'
 import { addToCart, removeFromCart } from '../../actions/cartActions'
 
@@ -37,6 +39,12 @@ const CartScreen = ({ match, location, history }) => {
             {cartItems.length === 0 ? (
             <Message>
                 Your cart is empty <Link to='/'>Go Back</Link>
+                <Lottie     
+                    options={{
+                        animationData: emptyBox,
+                        height: 80,
+                    }}
+                />
             </Message>
             ) : (
             <ListGroup variant='flush'>

@@ -42,8 +42,6 @@ export const productGenresReducer = (state = { products: []}, action) => {
             return {
                 loading: false,
                 products: action.payload.products,
-                pages: action.payload.pages,
-                page: action.payload.page,
             }
         case types.PRODUCT_GENRES_FAIL:
             return { loading: false, error: action.payload}

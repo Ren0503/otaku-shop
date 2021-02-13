@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Lottie from 'lottie-react-web'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
+import {
+    Magnifier,
+    GlassMagnifier,
+    SideBySideMagnifier,
+    PictureInPictureMagnifier,
+    MOUSE_ACTIVATION,
+    TOUCH_ACTIVATION
+} from 'react-image-magnifiers'
 
+import shoppingCart from '../../assets/animated/shopping-cart.json'
 import { Meta, Loader, Message } from '../../components/services'
 import { Rating } from '../../components/products'
 
@@ -74,7 +84,13 @@ const ProductDetailScreen = ({ history, match }) => {
                 <h2>{product.name}</h2>
                 <Row>
                     <Col md={6}>
-                        <Image src={product.image} atl={product.name} fluid />
+                        <Magnifier
+                            imageSrc={product.image} 
+                            imageAlt={product.name}
+                            largeImageSrc={product.image}  // Optional
+                            mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
+                            touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional
+                        />
                     </Col>
                     <Col md={3}>
                         <ListGroup variant='flush'>
@@ -161,6 +177,9 @@ const ProductDetailScreen = ({ history, match }) => {
                                     >
                                     Add To Cart
                                     </Button>
+                                    <Lottie options={{
+                                        animationData: shoppingCart
+                                    }}/>
                                 </ListGroup.Item>
 
                             </ListGroup>
