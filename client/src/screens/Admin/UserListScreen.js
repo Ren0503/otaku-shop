@@ -3,7 +3,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Loader, Message } from '../../components/services'
+import { Loader, Message } from '../../components/shared'
 
 import { listUsers, deleteUser } from '../../actions/userActions'
 

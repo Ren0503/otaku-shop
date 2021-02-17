@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Loader, Message, FormContainer } from '../../components/services'
+import { Loader, Message, FormContainer } from '../../components/shared'
 
 import { listProductDetails, updateProduct } from '../../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../../constants/productConstants'

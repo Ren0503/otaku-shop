@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import about from '../../assets/images/about.jpg'
-import { Meta, Loader, Message } from '../../components/services'
-import { Image, Jumbotron, Breadcrumb } from 'react-bootstrap'
+import { Meta, Loader, Message } from '../../components/shared'
+import { Container, Image, Jumbotron, Breadcrumb } from 'react-bootstrap'
 
 const AboutScreen = () => {
     return (
-        <>
+        <Container>
             <Meta />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -24,7 +24,7 @@ const AboutScreen = () => {
                 <br />
                 <p> As Ōtani's idea of the "figure moe zoku" seemed illogical at best, fans of the anime genre began using it ironically and humorously. The term was awarded the Okada Toshio Award at the Japanese Otaku Awards' 2004. </p>
             </Jumbotron>
-        </>
+        </Container>
     )
 }
 

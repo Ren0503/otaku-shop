@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Meta, Loader, Message } from '../../components/services'
-import { Col, Breadcrumb, Form, Button } from 'react-bootstrap'
+import { Meta, Loader, Message } from '../../components/shared'
+import { Container, Col, Breadcrumb, Form, Button } from 'react-bootstrap'
 
 const ContactScreen = () => {
     return (
-        <>
+        <Container>
             <Meta />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
@@ -63,7 +63,7 @@ const ContactScreen = () => {
                     Submit
                 </Button>
             </Form>
-        </>
+        </Container>
     )
 }
 

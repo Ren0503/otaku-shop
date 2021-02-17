@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Container, Card, CardGroup } from 'react-bootstrap'
 
 import home from '../../assets/images/home.jpg'
-import { Meta, Loader, Message, Paginate } from '../../components/services'
+import { Meta, Loader, Message, Paginate } from '../../components/shared'
 import { Product } from '../../components/products'
 
 import { listProductsGenres } from '../../actions/productActions'

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
-import { Meta, Loader, Message, Paginate } from '../../components/services'
+import { Meta, Loader, Message, Paginate } from '../../components/shared'
 import { Product, ProductCarousel } from '../../components/products'
 
 import { listProducts } from '../../actions/productActions'

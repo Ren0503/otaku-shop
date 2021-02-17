@@ -3,7 +3,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Loader, Message, Paginate } from '../../components/services'
+import { Loader, Message, Paginate } from '../../components/shared'
 
 import {
   listProducts,

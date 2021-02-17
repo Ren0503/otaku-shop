@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Carousel, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Loader , Message } from '../services'
+import { Loader , Message } from '../shared'
 import { listTopProducts } from '../../actions/productActions'
 
 const ProductCarousel = () => {
@@ -27,9 +27,9 @@ const ProductCarousel = () => {
                     <Link to={`/product/${product._id}`}>
                         <Image src={product.image} atl={product.name} fluid />
                         <Carousel.Caption>
-                            <h3>
+                            <p>
                                 {product.name} (${product.price})
-                            </h3>
+                            </p>
                         </Carousel.Caption>
                     </Link>
                 </Carousel.Item>

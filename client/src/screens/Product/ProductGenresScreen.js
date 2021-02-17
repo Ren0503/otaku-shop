@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
 import { Product } from '../../components/products'
-import { Loader, Message } from '../../components/services'
+import { Loader, Message } from '../../components/shared'
 
 import { listProductsGenres } from '../../actions/productActions'
 
