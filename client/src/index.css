@@ -5,7 +5,66 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Reggae One', cursive;
+}
+
+p {
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+.bg-dark {
+  background-color: #02111f !important;
+}
+
+/* carousel */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel img {
+  width: 100%;
+}
+.carousel a {
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption {
+    background-color: rgba(0,0,0,0.6);
+  }
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+  .carousel img {
+    height: auto;
+  }
 }
 

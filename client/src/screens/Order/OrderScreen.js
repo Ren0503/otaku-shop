@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Loader, Message } from '../../components/shared'
+import { Meta, Loader, Message } from '../../components/shared'
 
 import {
   getOrderDetails,
@@ -92,6 +92,7 @@ const OrderScreen = ({ match, history }) => {
         <Message variant='danger'>{error}</Message>
     ) : (
         <>
+            <Meta />
             <h1>Order {order._id}</h1>
             <Row>
                 <Col md={8}>

@@ -4,10 +4,7 @@ import Lottie from 'lottie-react-web'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form, Tab, Tabs } from 'react-bootstrap'
 import {
-    Magnifier,
     GlassMagnifier,
-    SideBySideMagnifier,
-    PictureInPictureMagnifier,
     MOUSE_ACTIVATION,
     TOUCH_ACTIVATION
 } from 'react-image-magnifiers'
@@ -87,12 +84,14 @@ const ProductDetailScreen = ({ history, match }) => {
                 <h2>{product.name}</h2>
                 <Row>
                     <Col md={7}>
-                        <Magnifier
+                        <GlassMagnifier
                             imageSrc={product.image} 
                             imageAlt={product.name}
                             largeImageSrc={product.image}  // Optional
-                            mouseActivation={MOUSE_ACTIVATION.DOUBLE_CLICK} // Optional
-                            touchActivation={TOUCH_ACTIVATION.DOUBLE_TAP} // Optional
+                            allowOverflow={true}
+                            magnifierBorderSize={5}
+                            magnifierBackgroundColor={"rgba(255, 255, 255, .5)"}
+                            magnifierSize={"30%"}
                         />
                     </Col>
                     <Col md={5}>

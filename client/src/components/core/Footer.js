@@ -58,11 +58,6 @@ const Footer = () => {
             </Col>
           </Row>
         </Container>
-        <div className="bg-light">
-          <Container className="text-center">
-            <p className="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
-          </Container>
-        </div>
       </footer>
 
   )

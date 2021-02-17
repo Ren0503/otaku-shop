@@ -13,7 +13,7 @@ const AboutScreen = () => {
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
                 <Breadcrumb.Item active>About</Breadcrumb.Item>
             </Breadcrumb>
-            <Image src={about} alt="About" />
+            <Image src={about} alt="About" fluid/>
             <Jumbotron>
                 <h1>Introduce About Figure</h1>
                 <p> In Japan, the term "figure" can refer to dolls and other collectible figurines. Figures based on anime, manga and bishōjo game characters are often sold as dolls in Japan. Collecting them is a popular hobby amongst Otakus. The term moe is otaku slang for the love of characters in video games, anime, or manga, whereas zoku is a post-World War II term for tribe, clan or family. </p>

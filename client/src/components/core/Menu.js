@@ -4,14 +4,13 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 
 const Menu = () => {
     return (
-        <Navbar collapseOnSelect bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="/">OTAKU YUKI</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mr-auto">
-                        <NavDropdown title="Product" id="collasible-nav-dropdown">
+            <Navbar.Brand href="/">OTAKU YUKI</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                    <NavDropdown title="Product" id="collasible-nav-dropdown">
                             <Link to='/product/genres/action'>
                                 <NavDropdown.Item href='/product/genres/action'>Action</NavDropdown.Item>
                             </Link>
@@ -25,8 +24,8 @@ const Menu = () => {
                             <Link to='/product/genres/book'>
                             <NavDropdown.Item href='/product/genres/book'>Book</NavDropdown.Item>
                             </Link>
-                        </NavDropdown>
-                        <NavDropdown title="Series" id="collasible-nav-dropdown">
+                    </NavDropdown>
+                    <NavDropdown title="Series" id="collasible-nav-dropdown2">
                             <Link to='/product/series/kimetsu'>
                                 <NavDropdown.Item href='/product/genres/action'>Kimetsu No Yaiba</NavDropdown.Item>
                             </Link>
@@ -40,10 +39,13 @@ const Menu = () => {
                                <NavDropdown.Item href='/product/genres/multi'>Attack on the Titan</NavDropdown.Item>
                             </Link>
                         </NavDropdown>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/contact">Contact</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
+                </Nav>
+                <Nav>
+                    <Nav.Link href="/about">About</Nav.Link>
+
+                    <Nav.Link href="/contact">Contact</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
             </Container>
         </Navbar>
     )

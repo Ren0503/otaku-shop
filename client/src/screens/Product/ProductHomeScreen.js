@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
 import { Meta, Loader, Message, Paginate } from '../../components/shared'
-import { Product, ProductCarousel } from '../../components/products'
+import { Product, SingleCarousel } from '../../components/products'
 
 import { listProducts } from '../../actions/productActions'
 
@@ -26,7 +26,7 @@ const ProductHomeScreen = ({ match }) => {
         <>
             <Meta />
             {!keyword ? (
-                <ProductCarousel />
+                <SingleCarousel />
             ) : (
                 <Link to='/' className='btn btn-light'>
                     Go Back

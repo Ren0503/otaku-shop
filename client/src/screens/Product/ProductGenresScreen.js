@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
 import { Product } from '../../components/products'
-import { Loader, Message } from '../../components/shared'
+import { Meta, Loader, Message } from '../../components/shared'
 
 import { listProductsGenres } from '../../actions/productActions'
 
@@ -20,6 +20,7 @@ const ProductGenresScreen = ({ match }) => {
 
     return (
         <>
+            <Meta />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
                 <Breadcrumb.Item active>Product</Breadcrumb.Item>

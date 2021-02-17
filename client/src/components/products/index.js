@@ -1,9 +1,11 @@
 import Product from './Product'
-import ProductCarousel from './ProductCarousel'
+import SingleCarousel from './SingleCarousel'
+import MultiCarousel from './MultipleCarousel'
 import Rating from './Rating'
 
 export {
     Product,
-    ProductCarousel,
+    SingleCarousel,
+    MultiCarousel,
     Rating,
 }

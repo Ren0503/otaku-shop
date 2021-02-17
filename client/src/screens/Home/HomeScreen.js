@@ -5,7 +5,7 @@ import { Row, Col, Container, Card, CardGroup } from 'react-bootstrap'
 
 import home from '../../assets/images/home.jpg'
 import { Meta, Loader, Message, Paginate } from '../../components/shared'
-import { Product } from '../../components/products'
+import { Product, MultiCarousel, SingleCarousel } from '../../components/products'
 
 import { listProductsGenres } from '../../actions/productActions'
 
@@ -25,7 +25,9 @@ const HomeScreen = ({}) => {
             <Card className="bg-dark text-white">
                 <Card.Img src={home} alt="Home image" fluid/>
                 <Card.ImgOverlay>
-                    <Card.Title>Otaku Figure Shop</Card.Title>
+                    <Card.Title variant="light">
+                        <h2>Otaku Figure Shop</h2>
+                    </Card.Title>
                     <Card.Text>
                     This is a wider card with supporting text below as a natural lead-in to
                     additional content. This content is a little bit longer.
@@ -63,6 +65,7 @@ const HomeScreen = ({}) => {
                             </Card>
                             ))}
                         </CardGroup>
+                        <SingleCarousel />
                     </>
                 )}
             </Container>
