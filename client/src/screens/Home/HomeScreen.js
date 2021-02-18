@@ -5,7 +5,7 @@ import { Row, Col, Container, Card, CardGroup } from 'react-bootstrap'
 
 import home from '../../assets/images/home.jpg'
 import { Meta, Loader, Message, Paginate } from '../../components/shared'
-import { Product, MultiCarousel, SingleCarousel } from '../../components/products'
+import { Product, MultipleCarousel, SingleCarousel } from '../../components/products'
 
 import { listProductsGenres } from '../../actions/productActions'
 
@@ -65,7 +65,7 @@ const HomeScreen = ({}) => {
                             </Card>
                             ))}
                         </CardGroup>
-                        <SingleCarousel />
+                        <MultipleCarousel />
                     </>
                 )}
             </Container>

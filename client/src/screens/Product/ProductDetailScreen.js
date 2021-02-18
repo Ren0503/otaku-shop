@@ -98,9 +98,12 @@ const ProductDetailScreen = ({ history, match }) => {
                         <Card>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
-                                    <Rating 
-                                        value={product.rating}
-                                    />
+                                    <Row>
+                                        <Col>Rating : </Col>
+                                        <Col>
+                                            <Rating value={product.rating} />
+                                        </Col>
+                                    </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Row>
@@ -170,20 +173,25 @@ const ProductDetailScreen = ({ history, match }) => {
                         <Tab eventKey="detail" title="Detail">
                             <ListGroup>
                                 <ListGroup.Item>
-                                    Character: {product.character}
+                                    <strong>Genres</strong>: {product.genres}
+                                </ListGroup.Item>
+
+                                <ListGroup.Item>
+                                    <strong>Character</strong>: {product.character}
                                 </ListGroup.Item>
                                 
                                 <ListGroup.Item>
-                                    Size: {product.size}
+                                    <strong>Size</strong>: {product.size}
                                 </ListGroup.Item>
                                 
                                 <ListGroup.Item>
-                                    Brand: {product.brand}
+                                    <strong>Brand</strong>: {product.brand}
                                 </ListGroup.Item>
                                 
                                 <ListGroup.Item>
-                                    Series: {product.series}
+                                    <strong>Series</strong>: {product.series}
                                 </ListGroup.Item>
+
                             </ListGroup>
                         </Tab>
                         <Tab eventKey="review" title="Reviews">

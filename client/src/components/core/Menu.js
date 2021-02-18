@@ -6,7 +6,7 @@ const Menu = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="/">OTAKU YUKI</Navbar.Brand>
+            <Navbar.Brand href="/product">OTAKU YUKI</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
