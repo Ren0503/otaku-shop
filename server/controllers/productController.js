@@ -2,8 +2,8 @@ import asyncHandler from 'express-async-handler'
 import Product from '../models/productModel.js'
 
 // @desc    Fetch all products
-// @routes  Get  /api/products
-// @actress public
+// @routes  Get  /api/products and GET /api/products?keyword=""&pageNumber=""
+// @access public
 
 const getProducts = asyncHandler(async (req, res) => {
     const pageSize = 8
@@ -26,9 +26,28 @@ const getProducts = asyncHandler(async (req, res) => {
     res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
+// @desc    Get products by genres
+// @routes  GET /api/products/genres?genre=""
+// @access  public
+
+const getProductByGenres = asyncHandler(async (req, res) => {
+    const genre = req.query.genre
+    ? {
+        genres: {
+            $regex: req.query.genre,
+            $options: 'i',
+        },
+    } : {}
+
+    const products = await Product.find({ ...genre }).sort({ createdAt: -1 })
+    const countGenres = await Product.countDocuments({ ...genre })
+
+    res.json({ products, countGenres })
+})
+
 // @desc Fetch products by series
-// @routes GET /api/products/series
-// @actress public
+// @routes GET /api/products/series?series=""
+// @access public
 
 const getProductsBySeries = asyncHandler(async (req, res) => {
     const series = req.query.series
@@ -45,6 +64,37 @@ const getProductsBySeries = asyncHandler(async (req, res) => {
 
     res.json({ products })
 
+})
+
+// @desc    fetch products by brand
+// @routes  GET /api/products/brand?brand=""
+// @access  Public
+
+const getProductsByBrand = asyncHandler(async (req, res) => {
+    const brand = req.query.brand
+    ? {
+        brand: {
+            $regex: req.query.brand,
+            $options: 'i',
+        },
+    } : {}
+    
+    const products = await Product.find({...brand}).sort({ createdAt: -1 })
+
+    res.json({ products })
+})
+
+// @desc    Fetch Product by Price
+// @routes  GET /api/product/price?bottom=""&up=""
+// @access  Public
+
+const getProductsByPrice = asyncHandler(async (req, res) => {
+    const bottom = req.query.bottom
+    const top = req.query.top
+
+    const products = await Product.find({price: {$gte: bottom, $lte: top}})
+
+    res.json({ products })
 })
 
 // @desc    fetch single product
@@ -189,24 +239,6 @@ const getTopProducts = asyncHandler(async (req, res) => {
     res.json(products)
 })
 
-// @desc    Get products by genres
-// @routes  GET /api/products/genres/:genres
-// @access  public
-
-const getProductByGenres = asyncHandler(async (req, res) => {
-    const genre = req.query.genre
-    ? {
-        genres: {
-            $regex: req.query.genre,
-            $options: 'i',
-        },
-    } : {}
-
-    const products = await Product.find({ ...genre }).sort({ createdAt: -1 })
-
-    res.json({ products })
-})
-
 export {
     getProducts,
     getProductById,
@@ -217,4 +249,6 @@ export {
     getTopProducts,
     getProductByGenres,
     getProductsBySeries,
+    getProductsByBrand,
+    getProductsByPrice,
 }

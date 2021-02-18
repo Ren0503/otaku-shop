@@ -10,6 +10,8 @@ import {
     getTopProducts,
     getProductByGenres,
     getProductsBySeries,
+    getProductsByBrand,
+    getProductsByPrice,
 } from '../controllers/productController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
@@ -29,6 +31,16 @@ router
 router
     .route('/series')
     .get(getProductsBySeries)
+
+// Get Product by Brand
+router
+    .route('/brand')
+    .get(getProductsByBrand)
+
+// Get Product by Price
+router
+    .route('/price')
+    .get(getProductsByPrice)
 
 // Get Product Review
 router
