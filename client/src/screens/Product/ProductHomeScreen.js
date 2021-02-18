@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap'
 
 import { Meta, Loader, Message, Paginate } from '../../components/shared'
 import { Product, SingleCarousel } from '../../components/products'
+import { Sidebar } from '../../components/core'
 
 import { listProducts } from '../../actions/productActions'
 
@@ -38,20 +39,25 @@ const ProductHomeScreen = ({ match }) => {
             ) : error ? (
                 <Message variant='danger'>{error}</Message>
             ) : (
-                <>
-                    <Row>
-                        {products.map((product) => (
-                            <Col key={product.id} sm={12} md={6} lg={4} xl={3}>
-                                <Product product={product} />
-                            </Col>
-                        ))}
-                    </Row>
-                    <Paginate 
-                        pages={pages}
-                        page={page}
-                        keyword={keyword ? keyword : ''}
-                    />
-                </>
+                <Row>
+                    <Col md={9}>
+                        <Row>
+                            {products.map((product) => (
+                                <Col key={product.id} sm={12} md={6} lg={4}>
+                                    <Product product={product} />
+                                </Col>
+                            ))}
+                        </Row>
+                        <Paginate 
+                            pages={pages}
+                            page={page}
+                            keyword={keyword ? keyword : ''}
+                        />
+                    </Col>
+                    <Col md={3}>
+                        <Sidebar />
+                    </Col>
+                </Row>
             )}
         </>
     )

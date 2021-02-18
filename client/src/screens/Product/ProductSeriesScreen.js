@@ -23,7 +23,8 @@ const ProductSeriesScreen = ({ match }) => {
             <Meta />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Product</Breadcrumb.Item>
+                <Breadcrumb.Item href="/product">Product</Breadcrumb.Item>
+                <Breadcrumb.Item active>{series.toUpperCase()}</Breadcrumb.Item>
             </Breadcrumb>
             {loading ? (
                 <Loader />

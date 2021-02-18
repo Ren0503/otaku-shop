@@ -1,52 +1,89 @@
-import Carousel from "react-multi-carousel"
-import "react-multi-carousel/lib/styles.css"
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 3 // optional, default to 1.
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2,
-        slidesToSlide: 2 // optional, default to 1.
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    }
+import { useDispatch, useSelector } from 'react-redux'
+import { Card, Button } from 'react-bootstrap'
+
+import { Loader, Message } from '../shared'
+import { listTopProducts } from '../../actions/productActions'
+
+const settings = {
+    className: "center",
+    centerMode: false,
+    lazyLoad: true,
+    infinite: true,
+    slidesToShow: 3,
+    autoplay: true,
+    speed: 500,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
 };
 
 const MultipleCarousel = () => {
-    return (
-        <Carousel 
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            autoPlaySpeed={1000}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-        >
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-        </Carousel>
-    )
+    const dispatch = useDispatch()
+
+    const productTopRated = useSelector(state => state.productTopRated)
+    const { loading, error, products } = productTopRated
+
+    useEffect(() => {
+        dispatch(listTopProducts())
+    }, [dispatch])
+
+    return loading ? (
+        <Loader />
+    ) : error ? (
+        <Message variant='danger'>{error}</Message>
+    ) : (
+            
+                <Slider {...settings}>
+                    {products.map((product) => (
+                        <div className="p-3">
+                        <Card key={product._id} className="card-slider text-center">
+                            <Card.Body>
+                                <Card.Title>{product.name}</Card.Title>
+                                <Card.Text as='div'>${product.price}</Card.Text>
+                            </Card.Body>
+                            <Card.Img variant="bottom" src={product.image} />
+                            
+                            <Card.Footer>
+                                <Link to={`/product/${product._id}`}>
+                                    <Button variant="primary">
+                                        See more
+                                    </Button>
+                                </Link>
+                            </Card.Footer>
+                        </Card>
+                        </div>
+                    ))}
+                </Slider>
+            )
 }
 
 export default MultipleCarousel

@@ -17,8 +17,8 @@ const Menu = () => {
                             <Link to='/product/genres/chibi'>
                                 <NavDropdown.Item href='/product/genres/chibi'>Chibi</NavDropdown.Item>
                             </Link>
-                            <Link to='/product/genres/multi'>
-                                <NavDropdown.Item href='/product/genres/multi'>Multi</NavDropdown.Item>
+                            <Link to='/product/genres/scale'>
+                                <NavDropdown.Item href='/product/genres/scale'>Scale</NavDropdown.Item>
                             </Link>
                             <NavDropdown.Divider />
                             <Link to='/product/genres/book'>

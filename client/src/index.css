@@ -47,8 +47,6 @@ strong {
 .carousel-item.active {
   display: flex;
 }
-.carousel-caption {
-}
 
 .carousel-caption h2 {
   color: #fff;
@@ -77,6 +75,10 @@ strong {
   box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
+.card-slider {
+  height: auto;
+}
+
 /* Navbar */
 .navbar {
   padding: 1rem;
@@ -89,4 +91,29 @@ strong {
 
 .tab-content {
   padding: 10px;
+}
+
+/** Slide */
+.slick-prev, .slick-next {
+  background: #333;
+  border-radius: 50%;
+}
+
+.slick-prev:focus, .slick-next:focus, .slick-prev:hover, .slick-next:hover{
+  background-color: #000;
+}
+
+.card-img-overlay {
+  background-color: rgb(242 234 234 / 20%);
+}
+
+.home_title {
+  font-size: 50px;
+  color: midnightblue;
+  padding: 20px;
+  font-weight: bolder;
+}
+
+.card-deck {
+  margin-top: -5rem;
 }
