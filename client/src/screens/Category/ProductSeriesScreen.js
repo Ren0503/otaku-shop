@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
-import { Product } from '../../components/products'
+import { MultipleProducts } from '../../components/products'
 import { Meta, Loader, Message } from '../../components/shared'
+import { Sidebar } from '../../components/core'
 
 import { listProductsSeries } from '../../actions/productActions'
 
 const ProductSeriesScreen = ({ match }) => {
-    const series = match.params.serie
+    const series = match.params.series
 
     const dispatch = useDispatch()
     const productSeries = useSelector(state => state.productSeries)
@@ -18,13 +19,13 @@ const ProductSeriesScreen = ({ match }) => {
         dispatch(listProductsSeries(series))
     }, [dispatch, series])
 
+
     return (
         <>
             <Meta />
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="/product">Product</Breadcrumb.Item>
-                <Breadcrumb.Item active>{series.toUpperCase()}</Breadcrumb.Item>
             </Breadcrumb>
             {loading ? (
                 <Loader />
@@ -33,11 +34,12 @@ const ProductSeriesScreen = ({ match }) => {
             ) : (
                 <>
                     <Row>
-                        {products.map((product) => (
-                            <Col key={product.id} sm={12} md={6} lg={4} xl={3}>
-                                <Product product={product} />
-                            </Col>
-                        ))}
+                        <Col md={9}>
+                            <MultipleProducts products={products} />
+                        </Col>
+                        <Col md={3}>
+                            <Sidebar />
+                        </Col>
                     </Row>
                 </>
             )}

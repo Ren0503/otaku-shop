@@ -50,6 +50,39 @@ export const productGenresReducer = (state = { products: []}, action) => {
     }
 }
 
+export const productBrandReducer = (state = { products: []}, action) => {
+    switch(action.type) {
+        case types.PRODUCT_BRAND_REQUEST:
+            return { loading: true, products: [] }
+        case types.PRODUCT_BRAND_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            }
+        case types.PRODUCT_BRAND_FAIL:
+            return { loading: false, error: action.payload}
+        default:
+            return state
+    }
+}
+
+export const productPriceReducer = (state = { products: []}, action) => {
+    switch(action.type) {
+        case types.PRODUCT_PRICE_REQUEST:
+            return { loading: true, products: [] }
+        case types.PRODUCT_PRICE_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            }
+        case types.PRODUCT_PRICE_FAIL:
+            return { loading: false, error: action.payload}
+        default:
+            return state
+    }
+}
+
+
 export const productDetailsReducer = (
     state = { product: { reviews: [] } },
     action

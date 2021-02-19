@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
 import { Meta, Loader, Message, Paginate } from '../../components/shared'
-import { Product, SingleCarousel } from '../../components/products'
+import { Product, SingleCarousel, MultipleProducts } from '../../components/products'
 import { Sidebar } from '../../components/core'
 
 import { listProducts } from '../../actions/productActions'
@@ -41,13 +41,7 @@ const ProductHomeScreen = ({ match }) => {
             ) : (
                 <Row>
                     <Col md={9}>
-                        <Row>
-                            {products.map((product) => (
-                                <Col key={product.id} sm={12} md={6} lg={4}>
-                                    <Product product={product} />
-                                </Col>
-                            ))}
-                        </Row>
+                        <MultipleProducts products={products} />
                         <Paginate 
                             pages={pages}
                             page={page}

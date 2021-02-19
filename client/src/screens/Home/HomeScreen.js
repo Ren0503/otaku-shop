@@ -72,8 +72,6 @@ const HomeScreen = ({ }) => {
                         </Card.Body>
                     </Card>
                 </CardDeck>
-                <h3>Top Rated Products</h3>
-                <MultipleCarousel />
             </Container>
             <Card className="bg-dark text-white">
                 <Card.Img src={genres} alt="Home genre image" fluid />
@@ -100,7 +98,10 @@ const HomeScreen = ({ }) => {
                     </Container>
                 </Card.ImgOverlay>
             </Card>
-            
+            <Container>
+                <h3>Top Rated Products</h3>
+                <MultipleCarousel />
+            </Container>
         </>
     )
 }

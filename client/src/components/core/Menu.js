@@ -11,36 +11,20 @@ const Menu = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <NavDropdown title="Product" id="collasible-nav-dropdown">
-                            <Link to='/product/genres/action'>
-                                <NavDropdown.Item href='/product/genres/action'>Action</NavDropdown.Item>
+                            <Link to='/category/genres/action'>
+                                <NavDropdown.Item href='/category/genres/action'>Action</NavDropdown.Item>
                             </Link>
-                            <Link to='/product/genres/chibi'>
-                                <NavDropdown.Item href='/product/genres/chibi'>Chibi</NavDropdown.Item>
+                            <Link to='/category/genres/chibi'>
+                                <NavDropdown.Item href='/category/genres/chibi'>Chibi</NavDropdown.Item>
                             </Link>
-                            <Link to='/product/genres/scale'>
-                                <NavDropdown.Item href='/product/genres/scale'>Scale</NavDropdown.Item>
+                            <Link to='/category/genres/scale'>
+                                <NavDropdown.Item href='/category/genres/scale'>Scale</NavDropdown.Item>
                             </Link>
                             <NavDropdown.Divider />
-                            <Link to='/product/genres/book'>
-                            <NavDropdown.Item href='/product/genres/book'>Book</NavDropdown.Item>
+                            <Link to='/category/genres/book'>
+                            <NavDropdown.Item href='/category/genres/book'>Book</NavDropdown.Item>
                             </Link>
                     </NavDropdown>
-                    <NavDropdown title="Series" id="collasible-nav-dropdown2">
-                            <Link to='/product/series/kimetsu'>
-                                <NavDropdown.Item href='/product/genres/action'>Kimetsu No Yaiba</NavDropdown.Item>
-                            </Link>
-                            <Link to='/product/series/naruto'>
-                                <NavDropdown.Item href='/product/genres/chibi'>Naruto Shippuden</NavDropdown.Item>
-                            </Link>
-                            <Link to='/product/series/one'>
-                                <NavDropdown.Item href='/product/genres/multi'>One Pieces</NavDropdown.Item>
-                            </Link>
-                            <Link to='/product/series/titan'>
-                               <NavDropdown.Item href='/product/genres/multi'>Attack on the Titan</NavDropdown.Item>
-                            </Link>
-                        </NavDropdown>
-                </Nav>
-                <Nav>
                     <Nav.Link href="/about">About</Nav.Link>
 
                     <Nav.Link href="/contact">Contact</Nav.Link>

@@ -3,11 +3,16 @@ import { Route, Switch } from 'react-router-dom'
 
 import {
     ProductDetailScreen,
-    ProductSeriesScreen,
-    ProductGenresScreen,
     ProductHomeScreen,
     CartScreen,
 } from '../screens/Product'
+
+import {
+    ProductBrandScreen,
+    ProductSeriesScreen,
+    ProductPriceScreen,
+    ProductGenresScreen,
+} from '../screens/Category'
 
 export default function ProductRoutes() {
     return (
@@ -19,9 +24,10 @@ export default function ProductRoutes() {
                 component={ProductHomeScreen}
                 exact
             />
-            <Route path='/product/genres/:genre' component={ProductGenresScreen} />
-            <Route path='/product/genres/:genre/page/:pageNumber' component={ProductGenresScreen} />
-            <Route path='/product/series/:serie' component={ProductSeriesScreen} />
+            <Route path='/category/genres/:genre' component={ProductGenresScreen} />
+            <Route path='/category/series/:series' component={ProductSeriesScreen} />
+            <Route path='/category/brand/:brand' component={ProductBrandScreen} />
+            <Route path='/category/price/:bottom/to/:top' component={ProductPriceScreen} />
             <Route path='/product/:id' component={ProductDetailScreen} />
             <Route path='/product' component={ProductHomeScreen} exact />
             <Route path='/cart/:id?' component={CartScreen} />

@@ -71,6 +71,52 @@ export const listProductsGenres = (genres) => async (dispatch) => {
     }
 }
 
+export const listProductsBrand = (brand) => async (dispatch) => {
+    try {
+        dispatch({ type: types.PRODUCT_BRAND_REQUEST })
+
+        const { data } = await axios.get(
+            `/api/products/brand?brand=${brand}`
+        )
+
+        dispatch({
+            type: types.PRODUCT_BRAND_SUCCESS,
+            payload: data,
+        })
+    } catch(error) {
+        dispatch({
+            type: types.PRODUCT_BRAND_FAIL,
+            payload:
+                error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        })
+    }
+}
+
+export const listProductsPrice = (bottom, top) => async (dispatch) => {
+    try {
+        dispatch({ type: types.PRODUCT_PRICE_REQUEST })
+
+        const { data } = await axios.get(
+            `/api/products/price?bottom=${bottom}&top=${top}`
+        )
+
+        dispatch({
+            type: types.PRODUCT_PRICE_SUCCESS,
+            payload: data,
+        })
+    } catch(error) {
+        dispatch({
+            type: types.PRODUCT_PRICE_FAIL,
+            payload:
+                error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        })
+    }
+}
+
 export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: types.PRODUCT_DETAILS_REQUEST})

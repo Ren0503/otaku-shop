@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Breadcrumb } from 'react-bootstrap'
 
-import { Product } from '../../components/products'
+import { MultipleProducts } from '../../components/products'
 import { Meta, Loader, Message } from '../../components/shared'
+import { Sidebar } from '../../components/core'
 
 import { listProductsGenres } from '../../actions/productActions'
 
@@ -24,22 +25,21 @@ const ProductGenresScreen = ({ match }) => {
             <Breadcrumb>
                 <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="/product">Product</Breadcrumb.Item>
-                <Breadcrumb.Item active>{genres.toUpperCase()}</Breadcrumb.Item>
+                <Breadcrumb.Item active>{genres.toUpperCase()} Figure</Breadcrumb.Item>
             </Breadcrumb>
             {loading ? (
                 <Loader />
             ) : error ? (
                 <Message variant='danger'>{error}</Message>
             ) : (
-                <>
-                    <Row>
-                        {products.map((product) => (
-                            <Col key={product.id} sm={12} md={6} lg={4} xl={3}>
-                                <Product product={product} />
-                            </Col>
-                        ))}
-                    </Row>
-                </>
+                <Row>
+                    <Col md={9}>
+                        <MultipleProducts products={products} />
+                    </Col>
+                    <Col md={3}>
+                        <Sidebar />
+                    </Col>
+                </Row>
             )}
         </>
     )
