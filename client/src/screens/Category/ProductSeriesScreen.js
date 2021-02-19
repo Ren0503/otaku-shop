@@ -8,6 +8,9 @@ import { Sidebar } from '../../components/core'
 
 import { listProductsSeries } from '../../actions/productActions'
 
+import Lottie from 'lottie-react-web'
+import emptyBox from '../../assets/animated/empty-box.json'
+
 const ProductSeriesScreen = ({ match }) => {
     const series = match.params.series
 
@@ -35,7 +38,19 @@ const ProductSeriesScreen = ({ match }) => {
                 <>
                     <Row>
                         <Col md={9}>
-                            <MultipleProducts products={products} />
+                            {products.length === 0 ? (
+                                <>
+                                    Not found products
+                                    <Lottie     
+                                        options={{
+                                            animationData: emptyBox,
+                                            height: 80,
+                                        }}
+                                    />
+                                </>
+                            ) : (
+                                <MultipleProducts products={products} />
+                            )}                        
                         </Col>
                         <Col md={3}>
                             <Sidebar />

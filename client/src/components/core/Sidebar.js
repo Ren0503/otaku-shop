@@ -6,89 +6,94 @@ const Sidebar = () => {
     return (
         <>
         <h2>Category</h2>
-        <ListGroup>
+        <ListGroup className='category'>
             <strong>Series</strong>
             <Link to='/category/series/kimetsu'>
                 <ListGroup.Item>
-                    Kimetsu No Yaiba
+                    <i className='fas fa-arrow-right'></i> Kimetsu No Yaiba
                 </ListGroup.Item>
             </Link>
             <Link to='/category/series/naruto'>
                 <ListGroup.Item>
-                    Naruto SHIPPUDEN
+                    <i className='fas fa-arrow-right'></i> Naruto SHIPPUDEN
                 </ListGroup.Item>
             </Link>
             <Link to='/category/series/one'>
                 <ListGroup.Item>
-                    One Pieces
+                    <i className='fas fa-arrow-right'></i> One Pieces
                 </ListGroup.Item>
             </Link>
             <Link to='/category/series/titan'>
                 <ListGroup.Item>
-                    Attack On Titan
+                    <i className='fas fa-arrow-right'></i> Attack On Titan
                 </ListGroup.Item>
             </Link>
         </ListGroup>
         <hr />
-        <ListGroup>
+        <ListGroup className='category'>
             <strong>Brand</strong>
             <Link to='/category/brand/kotobukiya'>
                 <ListGroup.Item>
-                    Kotobukiya
+                    <i className='fas fa-arrow-right'></i> Kotobukiya
                 </ListGroup.Item>
             </Link>
             <Link to='/category/brand/bandai'>
                 <ListGroup.Item>
-                    Bandai Studio
+                    <i className='fas fa-arrow-right'></i> Bandai 
                 </ListGroup.Item>
             </Link>
-            <Link to='/category/brand/mac'>
+            <Link to='/category/brand/max'>
                 <ListGroup.Item>
-                    Mac Factory
+                    <i className='fas fa-arrow-right'></i> Max Factory
                 </ListGroup.Item>
             </Link>
             <Link to='/category/brand/aniplex'>
                 <ListGroup.Item>
-                    Aniplex
+                    <i className='fas fa-arrow-right'></i> Aniplex
                 </ListGroup.Item>
             </Link>
-            <Link to='/category/brand/orange'>
+            <Link to='/category/brand/smile'>
                 <ListGroup.Item>
-                    Orange Rouge
+                    <i className='fas fa-arrow-right'></i> Good Smile 
                 </ListGroup.Item>
             </Link>
             <Link to='/category/brand/alter'>
                 <ListGroup.Item>
-                    Alter
+                    <i className='fas fa-arrow-right'></i> Alter
+                </ListGroup.Item>
+            </Link>
+            <Link to='/category/brand/ryu'>
+                <ListGroup.Item>
+                    <i className='fas fa-arrow-right'></i> Cloud Studio
                 </ListGroup.Item>
             </Link>
         </ListGroup>
         <hr />
-        <ListGroup>
-            <strong>Price</strong>
+        <ListGroup className='category'>
+            <strong>Price </strong>
             <Link to='/category/price/0/to/50'>
                 <ListGroup.Item>
-                    0 to $50
+                    <i className='fas fa-arrow-right'></i> 0 to $50
                 </ListGroup.Item>
             </Link>
             <Link to='/category/price/50/to/100'>
                 <ListGroup.Item>
-                    $50 to $100
+                    <i className='fas fa-arrow-right'></i> $50 to $100
                 </ListGroup.Item>
             </Link>
             <Link to='/category/price/100/to/200'>
                 <ListGroup.Item>
-                    $100 to $200
+                    <i className='fas fa-arrow-right'></i> $100 to $200
                 </ListGroup.Item>
             </Link>
             <Link to='/category/price/200/to/500'>
                 <ListGroup.Item>
-                    $200 to $500
+                    <i className='fas fa-arrow-right'></i> $200 to $500
                 </ListGroup.Item>
             </Link>
             <Link to='/category/price/500/to/1000'>
                 <ListGroup.Item>
-                    $500 to $1000
+                    <i className='fas fa-arrow-right'></i> $500 to $1000
                 </ListGroup.Item>
             </Link>
         </ListGroup>

@@ -117,3 +117,37 @@ strong {
 .card-deck {
   margin-top: -5rem;
 }
+
+.category .list-group-item:hover{
+  padding-left: 30px;
+  transition: 0.5s;
+}
+
+.brand img {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+.genres {
+  text-align: center;
+}
+
+.genres img{
+  height: 300px;
+}
+
+.genres i {
+  font-size: 60px;
+  background-image: linear-gradient(45deg, #f300009e, #0300b0e3);  
+  padding: 25px;
+  border-radius: 50%;
+}
+
+.genres h4 {
+  color: midnightblue;
+}
+
+.jumbotron h3{
+  color: #fff;
+}

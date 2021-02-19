@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Lottie from 'lottie-react-web'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, Form, Tab, Tabs } from 'react-bootstrap'
-import {
-    GlassMagnifier,
-    MOUSE_ACTIVATION,
-    TOUCH_ACTIVATION
-} from 'react-image-magnifiers'
+import { Row, Col, ListGroup, Card, Button, Form, Tab, Tabs } from 'react-bootstrap'
+import { GlassMagnifier } from 'react-image-magnifiers'
 
 import shoppingCart from '../../assets/animated/shopping-cart.json'
 import starRating from '../../assets/animated/stars-rating.json'
@@ -72,7 +68,7 @@ const ProductDetailScreen = ({ history, match }) => {
     return (
         <>
             <Link className='btn btn-light my-3' to='/'>
-                Go Back
+                <i className='fas fa-arrow-left'></i> Go Back
             </Link>
             {loading ? (
                 <Loader />
@@ -173,6 +169,10 @@ const ProductDetailScreen = ({ history, match }) => {
                         <Tab eventKey="detail" title="Detail">
                             <ListGroup>
                                 <ListGroup.Item>
+                                    <strong>Name</strong>: {product.name}
+                                </ListGroup.Item>
+
+                                <ListGroup.Item>
                                     <strong>Genres</strong>: {product.genres}
                                 </ListGroup.Item>
 
@@ -190,6 +190,10 @@ const ProductDetailScreen = ({ history, match }) => {
                                 
                                 <ListGroup.Item>
                                     <strong>Series</strong>: {product.series}
+                                </ListGroup.Item>
+             
+                                <ListGroup.Item>
+                                    <strong>Published at</strong>: {product.createdAt}
                                 </ListGroup.Item>
 
                             </ListGroup>

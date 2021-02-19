@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Button, Container, Card, CardDeck } from 'react-bootstrap'
+import { Row, Col, Button, Container, Card, CardDeck, CardColumns, Jumbotron } from 'react-bootstrap'
 
-import { Meta, Loader, Message } from '../../components/shared'
+import { Meta, BrandCarousel } from '../../components/shared'
 import { MultipleCarousel } from '../../components/products'
 
 import home from '../../assets/images/home.jpg'
@@ -73,26 +73,36 @@ const HomeScreen = ({ }) => {
                     </Card>
                 </CardDeck>
             </Container>
-            <Card className="bg-dark text-white">
+            <Card className="bg-dark text-white genres mt-4">
                 <Card.Img src={genres} alt="Home genre image" fluid />
                 <Card.ImgOverlay>
                     <Container className='p-5'>
-                        <Row>
+                        <Row className='py-2'>
                             <Col sm={12} md={6} lg={3}>
-                                <i className='fas fa-deviantart'></i>
-                                Action Figure
+                                <i className='fab fa-deviantart'></i>
                             </Col>
                             <Col sm={12} md={6} lg={3}>
                                 <i className='fas fa-flushed'></i>
-                                Chibi Figure
                             </Col>
                             <Col sm={12} md={6} lg={3}>
                                 <i className='fas fa-dice-d6'></i>
-                                Scale Figure
                             </Col>
                             <Col sm={12} md={6} lg={3}>
                                 <i className='fas fa-book'></i>
-                                Art Book
+                            </Col>
+                        </Row>
+                        <Row className='py-2'>
+                            <Col sm={12} md={6} lg={3}>
+                                <h4>Action Figure</h4>  
+                            </Col>
+                            <Col sm={12} md={6} lg={3}>
+                                <h4>Chibi Figure</h4>  
+                            </Col>
+                            <Col sm={12} md={6} lg={3}>
+                                <h4>Scale Figure</h4>  
+                            </Col>
+                            <Col sm={12} md={6} lg={3}>
+                                <h4>Art Book</h4>  
                             </Col>
                         </Row>
                     </Container>
@@ -101,6 +111,50 @@ const HomeScreen = ({ }) => {
             <Container>
                 <h3>Top Rated Products</h3>
                 <MultipleCarousel />
+            </Container>
+            <Jumbotron className='bg-dark' fluid>
+                <Container variant='dark'>
+                    <h3>Customer Opinion</h3>
+                    <CardColumns>
+                        <blockquote className="blockquote mb-0 card-body">
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                            erat a ante."
+                        </p>
+                        <footer className="blockquote-footer">
+                            <small className="text-muted">
+                            Opinion by <cite title="Source Title">Someone</cite>
+                            </small>
+                        </footer>
+                        </blockquote>
+                        <blockquote className="blockquote mb-0 card-body">
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                            erat a ante."
+                        </p>
+                        <footer className="blockquote-footer">
+                            <small className="text-muted">
+                            Opinion by <cite title="Source Title">Someone</cite>
+                            </small>
+                        </footer>
+                        </blockquote>
+                        <blockquote className="blockquote mb-0 card-body">
+                        <p>
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
+                            erat a ante."
+                        </p>
+                        <footer className="blockquote-footer">
+                            <small className="text-muted">
+                            Opinion by <cite title="Source Title">Someone</cite>
+                            </small>
+                        </footer>
+                        </blockquote>
+                    </CardColumns>
+                </Container>
+            </Jumbotron>
+            <Container>
+                <h3>Popular Brand</h3>
+                <BrandCarousel />
             </Container>
         </>
     )

@@ -99,7 +99,7 @@ const ProductEditScreen = ({ match, history }) => {
     return (
         <>
             <Link to='/admin/product_list' className='btn btn-light my-3'>
-                Go Back
+                <i className='fas fa-arrow-left'></i> Go Back
             </Link>
             <FormContainer>
                 <h1>Edit Product</h1>

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import { Meta, Loader, Message } from '../../components/shared'
+import { Meta } from '../../components/shared'
 import { Container, Col, Breadcrumb, Form, Button } from 'react-bootstrap'
 
 const ContactScreen = () => {

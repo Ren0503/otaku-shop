@@ -3,6 +3,7 @@ import Loader from './Loader'
 import Message from './Message'
 import Paginate from './Paginate'
 import FormContainer from './FormContainer'
+import BrandCarousel from './BrandCarousel'
 
 export {
     Meta,
@@ -10,4 +11,5 @@ export {
     Message,
     Paginate,
     FormContainer,
+    BrandCarousel,
 }

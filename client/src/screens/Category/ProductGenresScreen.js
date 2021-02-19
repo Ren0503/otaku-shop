@@ -8,6 +8,9 @@ import { Sidebar } from '../../components/core'
 
 import { listProductsGenres } from '../../actions/productActions'
 
+import Lottie from 'lottie-react-web'
+import emptyBox from '../../assets/animated/empty-box.json'
+
 const ProductGenresScreen = ({ match }) => {
     const genres = match.params.genre
 
@@ -34,7 +37,19 @@ const ProductGenresScreen = ({ match }) => {
             ) : (
                 <Row>
                     <Col md={9}>
-                        <MultipleProducts products={products} />
+                        {products.length === 0 ? (
+                            <>
+                                Not found products
+                                <Lottie     
+                                    options={{
+                                        animationData: emptyBox,
+                                        height: 80,
+                                    }}
+                                />
+                            </>
+                        ) : (
+                            <MultipleProducts products={products} />
+                        )}                    
                     </Col>
                     <Col md={3}>
                         <Sidebar />

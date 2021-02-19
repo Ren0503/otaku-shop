@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import about from '../../assets/images/about.jpg'
-import { Meta, Loader, Message } from '../../components/shared'
+import { Meta } from '../../components/shared'
 import { Container, Image, Jumbotron, Breadcrumb } from 'react-bootstrap'
 
 const AboutScreen = () => {
