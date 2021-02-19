@@ -1,7 +1,6 @@
 # Otaku Shop 
 
-> Shop with M.E.R.N Stack and Redux
-Repository is divided into two main packages:
+> Shop with M.E.R.N Stack and Redux. Repository is divided into two main packages:
 
 - **server** This package contains API for Otaku Shop, built with Nodejs, Express and MongoDB with Mongoose. Use Restful API
 - **client** Is a frontend for Otaku Shop, built with React, Redux, Axios and Bootstraps.
