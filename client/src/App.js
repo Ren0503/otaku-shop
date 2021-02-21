@@ -11,22 +11,22 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Header, Menu, Footer } from './components/core'
 
 const App = () => {
-  return (
-    <Router>
-      <Header />
-      <Menu />
-      <main>
-        <HomeRoutes />
-        <Container>
-          <UserRoutes />
-          <AdminRoutes />
-          <OrderRoutes />
-          <ProductRoutes />
-        </Container>
-      </main>
-      <Footer />
-    </Router>
-  )
+    return (
+        <Router>
+            <Header />
+            <Menu />
+            <main>
+                <HomeRoutes />
+                <Container>
+                    <UserRoutes />
+                    <AdminRoutes />
+                    <OrderRoutes />
+                    <ProductRoutes />
+                </Container>
+            </main>
+            <Footer />
+        </Router>
+    )
 }
 
 export default App

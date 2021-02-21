@@ -86,7 +86,7 @@ export const productPriceReducer = (state = { products: []}, action) => {
 export const productDetailsReducer = (
     state = { product: { reviews: [] } },
     action
-  ) => {
+) => {
     switch (action.type) {
         case types.PRODUCT_DETAILS_REQUEST:
             return { ...state, loading: true }
@@ -157,13 +157,26 @@ export const productReviewCreateReducer = (state = {}, action) => {
     }
 }
   
-  export const productTopRatedReducer = (state = { products: [] }, action) => {
+export const productTopRatedReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case types.PRODUCT_TOP_REQUEST:
             return { loading: true, products: [] }
         case types.PRODUCT_TOP_SUCCESS:
             return { loading: false, products: action.payload }
         case types.PRODUCT_TOP_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+export const productLimitReducer = (state = { products: [] }, action) => {
+    switch(action.type) {
+        case types.PRODUCT_LIMIT_REQUEST:
+            return { loading: true, products: [] }
+        case types.PRODUCT_LIMIT_SUCCESS:
+            return { loading: false, products: action.payload }
+        case types.PRODUCT_LIMIT_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state

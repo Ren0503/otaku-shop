@@ -3,6 +3,7 @@ const router = express.Router()
 import {
     getProducts,
     getProductById,
+    getProductRelated,
     createProduct,
     updateProduct,
     deleteProduct,
@@ -12,6 +13,7 @@ import {
     getProductsBySeries,
     getProductsByBrand,
     getProductsByPrice,
+    getLimitProducts,
 } from '../controllers/productController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
@@ -47,9 +49,18 @@ router
     .route('/:id/reviews')
     .post(protect, createProductReview)
 
+// Get Product Related
+router
+    .route('/:id/related')
+    .get(getProductRelated)
+
 // Get Top Product
 router
     .get('/top', getTopProducts)
+
+// Get Limit Product
+router
+    .get('/limit', getLimitProducts)
 
 // Get Item Product
 router

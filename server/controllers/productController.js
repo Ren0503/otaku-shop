@@ -112,6 +112,32 @@ const getProductById = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc    Get product related 
+// @routes  GET /api/products/:id/related
+// @access  Public
+
+const getProductRelated = asyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id)
+
+    if(product) {
+        const related = product.character
+        ? {
+            character: {
+                $regex: product.character,
+                $options: 'i',
+            },
+        } : {}
+        
+        const products = await Product.find({...related}).sort({ createdAt: -1 }).limit(5)
+    
+        res.json({ products })
+
+    } else {
+        res.status(404)
+        throw new Error('Product not found')
+    }
+})
+
 // @desc    delete a product
 // @routes  DELETE /api/products/:id
 // @access  private/admin
@@ -239,9 +265,19 @@ const getTopProducts = asyncHandler(async (req, res) => {
     res.json(products)
 })
 
+// @desc    Get limit products
+// @routes  GET /api/products/limit
+// @access  public
+const getLimitProducts = asyncHandler(async (req, res) => {
+    const products = await Product.find({ countInStock: {$gte: 1} }).sort({ countInStock: 1}).limit(5)
+
+    res.json(products)
+})
+
 export {
     getProducts,
     getProductById,
+    getProductRelated,
     createProduct,
     updateProduct,
     deleteProduct,
@@ -251,4 +287,5 @@ export {
     getProductsBySeries,
     getProductsByBrand,
     getProductsByPrice,
+    getLimitProducts,
 }

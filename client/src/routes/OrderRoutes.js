@@ -8,13 +8,17 @@ import {
     OrderScreen,
 } from '../screens/Order'
 
+import { ScrollToTop } from '../components/shared'
+
 export default function OrderRoutes() {
     return (
-        <Switch>
-            <Route path='/order/:id' component={OrderScreen} />
-            <Route path='/shipping' component={ShippingScreen} />
-            <Route path='/payment' component={PaymentScreen} />
-            <Route path='/place_order' component={PlaceOrderScreen} />
-        </Switch>
+        <ScrollToTop>
+            <Switch>
+                <Route path='/order/:id' component={OrderScreen} />
+                <Route path='/shipping' component={ShippingScreen} />
+                <Route path='/payment' component={PaymentScreen} />
+                <Route path='/place_order' component={PlaceOrderScreen} />
+            </Switch>
+        </ScrollToTop>
     )
 }

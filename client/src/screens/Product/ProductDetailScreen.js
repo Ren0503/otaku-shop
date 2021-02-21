@@ -10,7 +10,7 @@ import starRating from '../../assets/animated/stars-rating.json'
 import penPaper from '../../assets/animated/pen-and-paper.json'
 
 import { Meta, Loader, Message } from '../../components/shared'
-import { Rating } from '../../components/products'
+import { Rating, ProductsLimited } from '../../components/products'
 
 import {
   listProductDetails,
@@ -77,9 +77,9 @@ const ProductDetailScreen = ({ history, match }) => {
             ) : (
                 <>
                 <Meta title={product.name} />
-                <h2>{product.name}</h2>
+                <h3>{product.name}</h3>
                 <Row>
-                    <Col md={7}>
+                    <Col md={5}>
                         <GlassMagnifier
                             imageSrc={product.image} 
                             imageAlt={product.name}
@@ -87,29 +87,32 @@ const ProductDetailScreen = ({ history, match }) => {
                             allowOverflow={true}
                             magnifierBorderSize={5}
                             magnifierBackgroundColor={"rgba(255, 255, 255, .5)"}
-                            magnifierSize={"30%"}
+                            magnifierSize={"60%"}
                         />
                     </Col>
-                    <Col md={5}>
+                    <Col md={3}>
                         <Card>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
-                                    <Row>
-                                        <Col>Rating : </Col>
-                                        <Col>
-                                            <Rating value={product.rating} />
-                                        </Col>
-                                    </Row>
-                                </ListGroup.Item>
-                                <ListGroup.Item>
-                                    <Row>
-                                        <Col>Price: </Col>
-                                        <Col>
-                                            <strong>${product.price}</strong>
-                                        </Col>
-                                    </Row>
+                                    <Rating
+                                        value={product.rating}
+                                        text={`${product.numReviews} reviews`}
+                                    />
                                 </ListGroup.Item>
 
+                                <ListGroup.Item>
+                                    Price: <strong>${product.price}</strong>
+                                </ListGroup.Item>
+
+                                <ListGroup.Item>
+                                    Description: {product.description}
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>
+                    </Col>
+                    <Col md={3}>
+                        <Card>
+                            <ListGroup variant='flush'>
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Status : </Col>
@@ -160,12 +163,7 @@ const ProductDetailScreen = ({ history, match }) => {
                         </Card>
                     </Col>
                 </Row>
-                <Tabs defaultActiveKey="desc" transition={false} id="noanim-tab-example">
-                        <Tab eventKey="desc" title="Desc">
-                            <h5>Description</h5>
-
-                            <p>{product.description}</p>
-                        </Tab>
+                <Tabs defaultActiveKey="detail" transition={false} id="noanim-tab-example">
                         <Tab eventKey="detail" title="Detail">
                             <ListGroup>
                                 <ListGroup.Item>
@@ -221,66 +219,68 @@ const ProductDetailScreen = ({ history, match }) => {
                                     </ListGroup>
                                 </Col>
                                 <Col md={6}>
-                                <ListGroup variant='flush'>
-                                    <ListGroup.Item>
-                                    <h2>Write a Customer Review</h2>
-                                    {successProductReview && (
-                                        <Message variant='success'>
-                                        Review submitted successfully
-                                        </Message>
-                                    )}
-                                    {loadingProductReview && <Loader />}
-                                    {errorProductReview && (
-                                        <Message variant='danger'>{errorProductReview}</Message>
-                                    )}
-                                    {userInfo ? (
-                                        <Form onSubmit={submitHandler}>
-                                            <Form.Group controlId='rating'>
-                                                <Lottie options={{
-                                                    animationData: starRating
-                                                }}/>
-                                                <Form.Label>Rating</Form.Label>
-                                                <Form.Control
-                                                    as='select'
-                                                    value={rating}
-                                                    onChange={(e) => setRating(e.target.value)}
+                                    <ListGroup variant='flush'>
+                                        <ListGroup.Item>
+                                        <h2>Write a Customer Review</h2>
+                                        {successProductReview && (
+                                            <Message variant='success'>
+                                            Review submitted successfully
+                                            </Message>
+                                        )}
+                                        {loadingProductReview && <Loader />}
+                                        {errorProductReview && (
+                                            <Message variant='danger'>{errorProductReview}</Message>
+                                        )}
+                                        {userInfo ? (
+                                            <Form onSubmit={submitHandler}>
+                                                <Form.Group controlId='rating'>
+                                                    <Lottie options={{
+                                                        animationData: starRating
+                                                    }}/>
+                                                    <Form.Label>Rating</Form.Label>
+                                                    <Form.Control
+                                                        as='select'
+                                                        value={rating}
+                                                        onChange={(e) => setRating(e.target.value)}
+                                                    >
+                                                        <option value=''>Select...</option>
+                                                        <option value='1'>1 - Poor</option>
+                                                        <option value='2'>2 - Fair</option>
+                                                        <option value='3'>3 - Good</option>
+                                                        <option value='4'>4 - Very Good</option>
+                                                        <option value='5'>5 - Excellent</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                                <Form.Group controlId='comment'>
+                                                    <Form.Label>Comment</Form.Label>
+                                                    <Form.Control
+                                                        as='textarea'
+                                                        row='3'
+                                                        value={comment}
+                                                        onChange={(e) => setComment(e.target.value)}
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                                <Button
+                                                    disabled={loadingProductReview}
+                                                    type='submit'
+                                                    variant='primary'
                                                 >
-                                                    <option value=''>Select...</option>
-                                                    <option value='1'>1 - Poor</option>
-                                                    <option value='2'>2 - Fair</option>
-                                                    <option value='3'>3 - Good</option>
-                                                    <option value='4'>4 - Very Good</option>
-                                                    <option value='5'>5 - Excellent</option>
-                                                </Form.Control>
-                                            </Form.Group>
-                                            <Form.Group controlId='comment'>
-                                                <Form.Label>Comment</Form.Label>
-                                                <Form.Control
-                                                    as='textarea'
-                                                    row='3'
-                                                    value={comment}
-                                                    onChange={(e) => setComment(e.target.value)}
-                                                ></Form.Control>
-                                            </Form.Group>
-                                            <Button
-                                                disabled={loadingProductReview}
-                                                type='submit'
-                                                variant='primary'
-                                            >
-                                                Submit
-                                            </Button>
-                                        </Form>
-                                    ) : (
-                                        <Message>
-                                        Please <Link to='/login'>sign in</Link> to write a review{' '}
-                                        </Message>
-                                    )}
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Col>
+                                                    Submit
+                                                </Button>
+                                            </Form>
+                                        ) : (
+                                            <Message>
+                                            Please <Link to='/login'>sign in</Link> to write a review{' '}
+                                            </Message>
+                                        )}
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Col>
                             </Row>
                         </Tab>
                     </Tabs>
+                    <h3>Limited Products</h3>
+                    <ProductsLimited />
                 </>
             )}
         </>

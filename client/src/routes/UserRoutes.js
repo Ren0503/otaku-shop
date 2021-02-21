@@ -7,12 +7,16 @@ import {
     ProfileScreen,
 } from '../screens/User'
 
+import { ScrollToTop } from '../components/shared'
+
 export default function UserRoutes() {
     return (
-        <Switch>
-            <Route path='/login' component={LoginScreen} />
-            <Route path='/register' component={RegisterScreen} />
-            <Route path='/profile' component={ProfileScreen} />
-        </Switch>
+        <ScrollToTop>
+            <Switch>
+                <Route path='/login' component={LoginScreen} />
+                <Route path='/register' component={RegisterScreen} />
+                <Route path='/profile' component={ProfileScreen} />
+            </Switch>
+        </ScrollToTop>
     )
 }

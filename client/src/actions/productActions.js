@@ -138,6 +138,27 @@ export const listProductDetails = (id) => async (dispatch) => {
     }
 }
 
+export const listProductsLimit = () => async (dispatch) => {
+    try {
+        dispatch({ type: types.PRODUCT_LIMIT_REQUEST })
+
+        const { data } = await axios.get(`/api/products/limit`)
+
+        dispatch({
+            type: types.PRODUCT_LIMIT_SUCCESS,
+            payload: data,
+        })
+    } catch(error) {
+        dispatch({
+            type: types.PRODUCT_LIMIT_FAIL,
+            payload :
+                error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        })
+    }
+}
+
 export const deleteProduct = (id) => async(dispatch, getState) => {
     try {
         dispatch({type: types.PRODUCT_DELETE_REQUEST})

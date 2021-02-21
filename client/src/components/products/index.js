@@ -3,6 +3,7 @@ import SingleCarousel from './SingleCarousel'
 import MultipleCarousel from './MultipleCarousel'
 import Rating from './Rating'
 import MultipleProducts from './MultipleProducts'
+import ProductsLimited from './ProductsLimit'
 
 export {
     Product,
@@ -10,4 +11,5 @@ export {
     MultipleCarousel,   
     Rating,
     MultipleProducts,
+    ProductsLimited,
 }

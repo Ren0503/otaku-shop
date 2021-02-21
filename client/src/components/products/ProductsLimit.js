@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Image, Row, Card, Button, ListGroup } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { Loader , Message } from '../shared'
+import { listProductsLimit } from '../../actions/productActions'
+
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { Card, Button } from 'react-bootstrap'
-
-import { Loader, Message } from '../shared'
-import { listTopProducts } from '../../actions/productActions'
 
 const settings = {
     className: "center",
@@ -46,43 +46,42 @@ const settings = {
     ]
 };
 
-const MultipleCarousel = () => {
+var sectionStyle = {
+    width: 'auto',
+    height: '350px',
+}
+
+const ProductsLimited = ({  }) => {
     const dispatch = useDispatch()
 
-    const productTopRated = useSelector(state => state.productTopRated)
-    const { loading, error, products } = productTopRated
+    const productLimit = useSelector(state => state.productLimit)
+    const { loading, error, products } = productLimit
 
     useEffect(() => {
-        dispatch(listTopProducts())
+        dispatch(listProductsLimit())
     }, [dispatch])
 
     return loading ? (
         <Loader />
     ) : error ? (
         <Message variant='danger'>{error}</Message>
-    ) : (            
+    ) : (
         <Slider {...settings}>
             {products.map((product) => (
-                <div className="p-3">
-                <Card key={product._id} className="card-slider text-center">
-                    <Card.Body>
-                        <Card.Title>{product.name}</Card.Title>
-                        <Card.Text as='div'>${product.price}</Card.Text>
-                    </Card.Body>
-                    <Card.Img variant="bottom" src={product.image} />
-                    
-                    <Card.Footer>
-                        <Link to={`/product/${product._id}`}>
-                            <Button variant="primary">
-                                See more
-                            </Button>
-                        </Link>
-                    </Card.Footer>
-                </Card>
+                <div className='p-3'>
+                    <Card key={product._id} className="card-slider text-center">
+                            <Card.Img style={sectionStyle} variant="top" src={product.image} />
+                            <Card.Body>
+                                <Link to={`/product/${product._id}`}>
+                                    <Card.Title>{product.name}</Card.Title>
+                                </Link>
+                                <Card.Text as='div'>${product.price}</Card.Text>
+                            </Card.Body>
+                    </Card>
                 </div>
             ))}
         </Slider>
     )
 }
 
-export default MultipleCarousel
+export default ProductsLimited
