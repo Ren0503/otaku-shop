@@ -16,7 +16,8 @@ const Footer = () => {
       <footer className="bg-light text-light" style={sectionStyle}>
         <Container className="py-1" variant="dark">
           <Row className="py-4">
-            <Col lg={4} md={6} ><img src={logo} alt="logo" width={180} className="mb-3" variant="dark" />
+            <Col lg={4} md={6} >
+              <img src={logo} alt="logo" width={180} className="mb-3" variant="dark" />
               <p className="font-italic text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
               <ul className="list-inline mt-4">
                 <li className="list-inline-item"><a href="#" target="_blank" title="twitter"><i className="fa fa-twitter" /></a></li>

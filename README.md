@@ -45,7 +45,6 @@ npm run dev
 | multer | [plugins/multer/README.md](https://github.com/expressjs/multer/blob/master/README.md)|
 | morgan | [plugins/morgan/README.md](https://github.com/expressjs/morgan/blob/master/README.md) |
 | nodemon | [plugins/nodemon/README.md](https://github.com/remy/nodemon/blob/master/README.md) |
-| qrcode | [plugins/qrcode/README.md](https://github.com/soldair/node-qrcode/blob/master/README.md) |
 
 ### Client
 
@@ -60,3 +59,12 @@ npm run dev
 | react-router-dom | [plugins/react-router/README.md](https://github.com/ReactTraining/react-router/blob/master/README.md) |
 | react-slick | [plugins/react-slick/README.md](https://github.com/akiran/react-slick) |
 | redux | [plugins/redux/README.md](https://github.com/reduxjs/redux)|
+
+## Screenshots
+|                                        Home                                        |                                        Detail                                        |                                        Cart                                        |
+| :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/151650022_1343491369352250_8284973911763744827_n.png) | ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/152527928_851672899022527_3501632477537467572_n.png) | ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/152030340_3622401781202788_7470098220665802736_n.png) |
+
+|                                        Review                                        |                                        Manager                                        |                                        Order                                        |
+| :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/151594673_251151653144602_584320497240619424_n.png) | ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/152339864_468214567668281_5607034847921964929_n.png) | ![](https://github.com/Ren0503/otaku-shop/blob/master/uploads/demo/152253334_1490262111179078_4680478857355211047_n.png) |

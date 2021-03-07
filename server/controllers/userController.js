@@ -4,7 +4,7 @@ import User from '../models/userModel.js'
 
 // @desc    Auth & get token
 // @route   POST /api/users/login
-// @actress public
+// @access public
 
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
@@ -27,7 +27,7 @@ const authUser = asyncHandler(async (req, res) => {
 
 // @desc    Register a new user
 // @routes  POST /api/users
-// @actress public
+// @access public
 
 const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
@@ -61,7 +61,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
 // @desc    Get user profile
 // @routes  GET /api/users/profile
-// @actress private
+// @access private
 
 const getUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id)
@@ -110,7 +110,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
 // @desc    Get all users
 // @routes  GET /api/users
-// @actress private/admin
+// @access private/admin
 const getUsers = asyncHandler(async (req, res) => {
     const users = await User.find({})
     res.json(users)
@@ -118,7 +118,7 @@ const getUsers = asyncHandler(async (req, res) => {
 
 // @desc    Delete user
 // @routes  DELETE /api/users/:id
-// @actress private/admin
+// @access private/admin
 const deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id)
 
@@ -148,7 +148,7 @@ const getUserById = asyncHandler(async (req, res) => {
 
 // @desc    update user
 // @routes  PUT /api/users/:id
-// @actress private/admin
+// @access private/admin
 const updateUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id)
 
